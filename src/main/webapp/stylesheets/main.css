@@ -1,4 +1,68 @@
+ :root {
+    --bg-color:#EAABAB;
+    --pale-accent: #f2dede;
+    --bright-accent: #ef7f7f;
+    --dark-accent: #703b3b;
+}
+
  body {
-   font-family: Verdana, Helvetica, sans-serif;
-   background-color: #FFFFCC;
+   font-family: Georgia, serif;
+   background-color: #EAABAB;
+}
+
+.header {
+	background-image: url(../images/header.jpg);
+	align: center;
+	margin-bottom: 40px;
+	color: white;
+	outline-color: black;
+	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.container {
+	color: white;
+	background-color: #EF7F7F;
+	padding: 15px;
+	float: right;
+	max-width: 30%;
+}
+.post {
+  max-width: 60%;
+  background-color: #efcece;
+  padding: 20px;
+ }
+.posttitle {
+	max-width: auto;
+  font-weight: bold;
+  font-size: 30px;
+  background-color: #f2dede;
+  padding: 20px;
+  margin-top: 5px;
+  margin-botttom: 5px;
+  size: 20px;
+}
+.postbody {
+	max-width: auto;
+  font-family: Arial, sans-serif;
+  background-color: #f2dede;
+  padding: 20px;
+  margin-top: 5px;
+  margin-botttom: 5px;
+  size: 15px;	
+}
+.user {
+	size: 10px;
+	margin-bottom: 5px;
+}
+.datetime {
+	font-style: oblique;
+	margin-top: 5px;
+	size: 10px;
+}
+input[type=submit]{
+	font-family: Georgia, serif;
+	max-width: auto;
+	background: #703b3b;
+	border-radius: 8px;
+	color: white;
 }

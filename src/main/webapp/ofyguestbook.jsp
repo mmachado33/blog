@@ -36,13 +36,18 @@
    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
  </head>
 
-
- 
-
   <body>
 
- 
-
+  <div class="header">
+  	<h1>0 errors = perfect code</h1>
+  </div>
+  
+  <div class="container">
+  	<p>This is the homework 4 blog that Matthew and Adriana created.
+  	   Matthew and Adriana have been dating for 3.5 years and have one boy,
+  	   a marmalade boy named Riot.
+  	</p>
+  	</div>
 <%
 
     pageContext.setAttribute("guestbookName", "default");
@@ -67,11 +72,9 @@
 
 %>
 
-<p>Hello!
+<p>Please <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">sign in</a>
 
-<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
-
-to include your name with greetings you post.</p>
+to post on this blog.</p>
 
 <%
 
@@ -80,6 +83,7 @@ to include your name with greetings you post.</p>
 %>
 
  
+  </div>
 
 <%
 
@@ -109,6 +113,11 @@ Collections.sort(greetings);
         	if(i>4){
         		break;
         	}
+        	
+        	%>
+        	
+        	<div class="post">
+        	<%
 			Greeting greeting = greetings.get(i);
 			
 			if(greeting.getTitle() != null) {
@@ -131,19 +140,18 @@ Collections.sort(greetings);
 
                 %>
 
-                <p><b>${fn:escapeXml(greeting_user.nickname)}</b> wrote at</p>
-            
-            	${fn:escapeXml(greeting_date)}:
+                <div class="user"><b>${fn:escapeXml(greeting_user.nickname)}</b></div> wrote at <div class="datetime">${fn:escapeXml(greeting_date)}:</div>
 
                 <%
 
             %>
 
-            <blockquote>${fn:escapeXml(greeting_title)}</blockquote>
+            <blockquote class="posttitle">${fn:escapeXml(greeting_title)}</blockquote>
             
-            <blockquote>${fn:escapeXml(greeting_content)}</blockquote>
+            <blockquote class="postbody">${fn:escapeXml(greeting_content)}</blockquote>
             
-
+            </div>
+			<p style="background-color:#EAABAB">
             <%
 
         }
@@ -153,12 +161,13 @@ Collections.sort(greetings);
 
       		<div><input type="submit" name="See All Posts" value="See All Posts" /></div>
     	</form>
+        
 		<% 
         }
-
     }
 
 %>
+</div>
 <%
 	if(pageContext.getAttribute("user") != null){
 		%>
