@@ -66,24 +66,26 @@ public class OfySignGuestbookServlet extends HttpServlet {
         String content = req.getParameter("content");
         
         String title = req.getParameter("title");
-
-        Date date = new Date();
-
-        Entity greeting = new Entity("Greeting");
-
-        greeting.setProperty("user", user);
-
-        greeting.setProperty("date", date);
-
-        greeting.setProperty("content", content);
         
-        greeting.setProperty("title", title);
+        if(content.length() != 0 || title.length() != 0) {
 
-        ofy().save().entity(greeting);
- 
+            Date date = new Date();
 
+            Entity greeting = new Entity("Greeting");
+
+            greeting.setProperty("user", user);
+
+            greeting.setProperty("date", date);
+
+            greeting.setProperty("content", content);
+            
+            greeting.setProperty("title", title);
+
+            ofy().save().entity(greeting);
+     
+
+        }
         resp.sendRedirect("/ofyguestbook.jsp");
-
     }
 
 }

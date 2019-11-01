@@ -48,7 +48,9 @@
 			
       		<div><textarea name="content" rows="3" cols="60"></textarea></div>
 
-      		<div><input type="submit" name="Post Greeting" value="Post Greeting" /></div>
+			<br>
+			
+      		<div><input type="submit" name="Post Greeting" value="Submit Post" /></div>
       		
       		<input type="hidden" name="guestbookName" value="default"/>
 

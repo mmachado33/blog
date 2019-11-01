@@ -47,7 +47,6 @@
   	   Matthew and Adriana have been dating for 3.5 years and have one boy,
   	   a marmalade boy named Riot.
   	</p>
-  	</div>
 <%
 
     pageContext.setAttribute("guestbookName", "default");
@@ -62,6 +61,16 @@
 
 %>
 
+<%
+	if(pageContext.getAttribute("user") != null){
+		%>
+		
+        <form action="/post.jsp" method="post">
+      		<div><input type="submit" value="Create New Blog" /></div>
+    	</form>
+		<% 
+	}
+	%>
 <p>Hello, ${fn:escapeXml(user.nickname)}! (You can
 
 <a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p>
@@ -75,7 +84,6 @@
 <p>Please <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">sign in</a>
 
 to post on this blog.</p>
-
 <%
 
     }
@@ -140,7 +148,7 @@ Collections.sort(greetings);
 
                 %>
 
-                <div class="user"><b>${fn:escapeXml(greeting_user.nickname)}</b></div> wrote at <div class="datetime">${fn:escapeXml(greeting_date)}:</div>
+                <div class="user">${fn:escapeXml(greeting_user.nickname)}</div> <div style="font-size:15px"> wrote at</div> <div class="datetime">${fn:escapeXml(greeting_date)}:</div>
 
                 <%
 
@@ -168,16 +176,6 @@ Collections.sort(greetings);
 
 %>
 </div>
-<%
-	if(pageContext.getAttribute("user") != null){
-		%>
-		
-        <form action="/post.jsp" method="post">
-      		<div><input type="submit" value="Create New Blog" /></div>
-    	</form>
-		<% 
-	}
-	%>
  
   
 

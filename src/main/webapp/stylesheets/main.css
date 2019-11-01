@@ -51,13 +51,14 @@
   size: 15px;	
 }
 .user {
-	size: 10px;
+	font-weight:bold;
+	font-size: 15px;
 	margin-bottom: 5px;
 }
 .datetime {
 	font-style: oblique;
 	margin-top: 5px;
-	size: 10px;
+	font-size: 15px;
 }
 input[type=submit]{
 	font-family: Georgia, serif;
