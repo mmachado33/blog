@@ -66,7 +66,7 @@
 		%>
 		
         <form action="/post.jsp" method="post">
-      		<div><input type="submit" value="Create New Blog" /></div>
+      		<div><input type="submit" value="Create New Post" /></div>
     	</form>
 		<% 
 	}

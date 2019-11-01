@@ -53,7 +53,7 @@ Collections.sort(greetings);
 
         %>
 
-        <p>There are no posts.</p>
+        <h1>There are no posts.</h1>
 
         <%
 
@@ -61,12 +61,18 @@ Collections.sort(greetings);
 
         %>
 
-        <p>All Blog Posts.</p>
+        <h1>All Blog Posts.</h1>
 
+		<div class="post">
         <%
 
         for (Greeting greeting : greetings) {
-        	
+        	if(greeting.getTitle() != null) {
+				pageContext.setAttribute("greeting_title", greeting.getTitle());
+				
+			} else {
+				pageContext.setAttribute("greeting_title", "<Untitled>");
+			}
             pageContext.setAttribute("greeting_content",
 
                                      greeting.getContent());
@@ -75,7 +81,7 @@ Collections.sort(greetings);
 
                 %>
 
-                <p>An anonymous person wrote:</p>
+                <p class="user">An anonymous person wrote:</p>
 
                 <%
 
@@ -94,21 +100,21 @@ Collections.sort(greetings);
             }
 
             %>
-
-            <blockquote>${fn:escapeXml(greeting_content)}</blockquote>
-
+			
+			<blockquote class="posttitle">${fn:escapeXml(greeting_title)}</blockquote>
+            
+            <blockquote class="postbody">${fn:escapeXml(greeting_content)}</blockquote>
+			
             <%
 
         }
-      
+      %>
+      </div>
+      <br>
+      <%
     }
 
-%>
-
- 
-  
-
- 
+%> 
 
   </body>
 
